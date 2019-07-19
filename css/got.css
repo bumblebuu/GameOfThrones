@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.main-div {
+    display: block;
+}
+
+.flexible-container {
+    background: url(/assets/site/mapblue.jpg) no-repeat;
+    display: block;
+}
+
+.sidebar-div {
+    display: block;
+    background: #666;
+    padding: 10px;
+
+}
+
+.unflexible-container {
+    display: block;
+}
+
+.div-got-chars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    margin-top: 20px;
+}
+
+.sidebar-div input {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    margin: 10px;
+}
+
+.name-div {
+    position: relative;
+    top: -20px;
+    text-align: center;
+}
+
+.image-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-width: 576px) and (max-width: 766px) {
+
+    .main-div {
+        display: flex;
+    }
+
+    .flexible-container {
+        display: flex;
+    }
+
+    .sidebar-div {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+}
+
+
+@media (min-width: 767px) {
+
+    .main-div {
+        display: flex;
+        background-attachment: fixed;
+    }
+
+    .character-div {
+        width: 140px;
+    }
+
+    .image-div img {
+        width: 50px;
+    }
+
+
+    .sidebar-div {
+        height: 100vh;
+        width: 30vw;
+        min-width: 300px;
+    }
+}

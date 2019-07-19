@@ -1,21 +1,28 @@
-var userDatas;
+let characters;
 
-function getData(url, callbackFunc) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function getCharacters() {
-    if (this.readyState === 4 && this.status === 200) {
-      callbackFunc(this);
+function storeCharacters(jsonContent) {
+  characters = JSON.parse(jsonContent);
+  console.log(characters);
+  showCharacters(characters);
+}
+
+function getJSON(url, callback) {
+  const request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+      callback(request.responseText);
     }
   };
-  xhttp.open('GET', url, true);
-  xhttp.send();
+  request.open('GET', url, true);
+  request.send();
 }
 
-function successAjax(xhttp) {
-  userDatas = JSON.parse(xhttp.responseText);
+getJSON('/json/got.json', storeCharacters);
+
+function showCharacters(){
+let char = [];
+
+for (let i = 0; i < characters.length; i += 1){
+  if (characters[i].)
 }
-
-getData('/json/aJsonFileodNeve.json', successAjax);
-
-// Live servert használd mindig!!!!!
-/* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
+}
