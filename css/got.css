@@ -1,48 +1,43 @@
-body {
-    margin: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css?family=Cinzel:400,700|K2D&display=swap');
+
+@font-face {
+    font-family: GameOfThrones;
+    src: url(/fonts/Game\ of\ Thrones.ttf);
 }
 
+body {
+    background-color: rgb(63, 63, 63);
+    box-sizing: border-box;
+    margin: 0;
+}
 
 .main-div {
     display: block;
 }
 
+/*  ---  KARAKTEREK KÉPEI ÉS NEVE  ---*/
+
 .flexible-container {
     background: url(/assets/site/mapblue.jpg) no-repeat;
-    display: block;
-}
-
-.sidebar-div {
-    display: block;
-    background: #666;
-    padding: 10px;
-
-}
-
-.unflexible-container {
-    display: block;
+    background-size: cover;
 }
 
 .div-got-chars {
+    align-content: space-around;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: space-around;
-    margin-top: 20px;
-}
-
-.sidebar-div input {
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
-    margin: 10px;
+    padding-top: 20px;
 }
 
 .name-div {
+    color: rgb(131, 120, 106);
+    font-family: 'Cinzel', serif;
+    font-size: 9pt;
+    letter-spacing: -1px;
     position: relative;
-    top: -20px;
     text-align: center;
+    top: -5px;
 }
 
 .image-div {
@@ -50,34 +45,144 @@ body {
     justify-content: space-around;
 }
 
-@media (min-width: 576px) and (max-width: 766px) {
+.name-div h4:hover {
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0;
+    transform: scale(1.2);
+}
 
-    .main-div {
-        display: flex;
-    }
+.image-div img:hover {
+    border-radius: 50px;
+    box-shadow: 5px 5px 2px rgb(68, 68, 68);
+    cursor: pointer;
+    transform: scale(1.2) translate(-5px, -5px);
+}
 
-    .flexible-container {
-        display: flex;
-    }
-
-    .sidebar-div {
-        display: flex;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-
+div[data-current]>div>img {
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px 4px rgb(47, 95, 97);
+    transform: scale(1.2);
 }
 
 
-@media (min-width: 767px) {
+/*  ---  kERESŐ ÉS MEGJELENÍTŐ SÁV  ---  */
 
-    .main-div {
-        display: flex;
-        background-attachment: fixed;
+.sidebar-div {
+    background: rgb(63, 63, 63);
+    color: rgb(207, 201, 201);
+    font-family: 'K2D', sans-serif;
+    padding: 10px;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.unflexible-container {
+    min-width: 300px;
+    position: fixed;
+}
+
+.show-character-div {
+    margin: 10px 10px;
+}
+
+
+.search-div {
+    background-color: rgb(63, 63, 63);
+    bottom: 0;
+    display: flex;
+    padding: 20px 10px;
+    position: fixed;
+    width: 100%;
+}
+
+.input-div {
+    background-color: white;
+    border: 0;
+    border-radius: 2px;
+    padding: 5px;
+    width: 200px;
+}
+
+.input-div img {
+    vertical-align: middle;
+    width: 20px;
+}
+
+input {
+    border: 0;
+    font-size: 10pt;
+    margin-left: 5px;
+    position: relative;
+}
+
+.search-arrow {
+    border: 1px solid rgb(207, 201, 201);
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 3px;
+    width: 30px;
+}
+
+
+.got-font {
+    font-family: GameOfThrones, serif;
+    text-align: center;
+}
+
+.name-and-house {
+    max-width: 350px;
+}
+
+.name-and-house h3 {
+    display: inline;
+}
+
+.name-and-house img {
+    display: inline;
+    float: right;
+}
+
+.character-image {
+    max-width: 350px;
+}
+
+
+/*   ---  MEDIAQUERIK  ---   */
+
+@media (max-width: 600px) {
+
+    .div-got-chars {
+        height: 40vh;
+        overflow: scroll;
     }
 
     .character-div {
+        width: 45vw;
+    }
+
+    .image-div img {
+        width: 20vw;
+    }
+
+    .sidebar-div {
+        height: 60vh;
+    }
+
+    .search-div {
+        left: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+
+    .main-div {
+        display: flex;
+    }
+
+    .character-div {
+        height: 16.6vh;
+        min-height: 90px;
         width: 140px;
     }
 
@@ -88,7 +193,24 @@ body {
 
     .sidebar-div {
         height: 100vh;
-        width: 30vw;
         min-width: 300px;
+        width: 30vw;
+    }
+
+    .search-div {
+        max-width: 300px;
+    }
+
+    .name-and-house {
+        margin: 5px;
+        width: 280px;
+    }
+
+    .name-and-house img {
+        max-width: 25px;
+    }
+
+    .character-image {
+        width: 280px;
     }
 }
