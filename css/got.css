@@ -45,14 +45,14 @@ body {
     justify-content: space-around;
 }
 
-.name-div h4:hover {
+.character-div:hover>.name-div h4 {
     cursor: pointer;
     font-weight: 700;
     letter-spacing: 0;
     transform: scale(1.2);
 }
 
-.image-div img:hover {
+.character-div:hover>.image-div img {
     border-radius: 50px;
     box-shadow: 5px 5px 2px rgb(68, 68, 68);
     cursor: pointer;

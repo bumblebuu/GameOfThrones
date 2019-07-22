@@ -49,13 +49,18 @@ const Character = {
     for (let i = 0; i < this.characters.length; i += 1) {
       if (this.characters[i].name === name) {
         found = this.characters[i];
+        break;
+      } else {
+        found = undefined;
       }
     }
     this.hasHouse(found);
   },
   hasHouse(found) {
     let toBuild = {};
-    if (found.hasOwnProperty('house')) {
+    if (found === undefined) {
+      toBuild = 'Character not found.';
+    } else if (found.hasOwnProperty('house')) {
       toBuild = this.activateSidebar(found);
       this.enableClass(found);
     } else {
@@ -92,6 +97,9 @@ const Character = {
     for (let i = 0; i < this.characters.length; i += 1) {
       if (this.characters[i].name.toLowerCase() === name.toLowerCase()) {
         char = this.characters[i];
+        break;
+      } else {
+        char = undefined;
       }
     }
     this.hasHouse(char);
